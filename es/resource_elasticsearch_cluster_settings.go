@@ -65,6 +65,7 @@ var (
 		"cluster.routing.allocation.enable",
 		"cluster.routing.allocation.same_shard.host",
 		"action.destructive_requires_name",
+		"search.default_allow_partial_results",
 	}
 	dynamicClusterSettings = concatStringSlice(stringClusterSettings, intClusterSettings, floatClusterSettings, boolClusterSettings)
 )
@@ -261,6 +262,11 @@ func resourceElasticsearchClusterSettings() *schema.Resource {
 				Type:        schema.TypeString,
 				Optional:    true,
 				Description: "A time string setting a cluster-wide default timeout for all search requests",
+			},
+			"search_default_allow_partial_results": {
+				Type:        schema.TypeBool,
+				Optional:    true,
+				Description: "A bool setting to allow or disallow default returning of partial results from searches",
 			},
 			"action_auto_create_index": {
 				Type:         schema.TypeString,
