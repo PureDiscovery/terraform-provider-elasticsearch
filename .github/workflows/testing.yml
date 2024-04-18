@@ -1,0 +1,19 @@
+name: Release Pipeline
+on:
+  workflow_dispatch:
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    name: Release
+    env:
+      GITHUB_TOKEN_ENCRYPTED:
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Import GPG key
+        id: import_gpg
+        uses: crazy-max/ghaction-import-gpg@v2
+        env:
+          GPG_PRIVATE_KEY: ${{ secrets.SPACELIFT_REVEAL_GITHUB_GPG_PRIVATE_KEY }}
+      - name: Echo GPG key fingerprint
+        run: echo "${{ steps.import_gpg.outputs.fingerprint }}"
