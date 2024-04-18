@@ -167,7 +167,7 @@ jobs:
         id: import_gpg
         uses: crazy-max/ghaction-import-gpg@v2
         env:
-          GPG_PRIVATE_KEY: ${{ secrets.SPACELIFT_REVEAL_GITHUB_GPG_PRIVATE_KEY }}
+          gpg_private_key: ${{ secrets.SPACELIFT_REVEAL_GITHUB_GPG_PRIVATE_KEY }}
 
       - name: Install spacectl
         uses: spacelift-io/setup-spacectl@main
