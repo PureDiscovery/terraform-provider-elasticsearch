@@ -1,4 +1,4 @@
-name: Release Pipeline
+name: Test GPG
 on:
   workflow_dispatch:
 jobs:
