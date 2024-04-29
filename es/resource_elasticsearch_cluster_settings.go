@@ -264,7 +264,7 @@ func resourceElasticsearchClusterSettings() *schema.Resource {
 				Description: "A time string setting a cluster-wide default timeout for all search requests",
 			},
 			"search_default_allow_partial_results": {
-				Type:        schema.TypeBool,
+				Type:        schema.TypeString,
 				Optional:    true,
 				Description: "A bool setting to allow or disallow default returning of partial results from searches",
 			},
