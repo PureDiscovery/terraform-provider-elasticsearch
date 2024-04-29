@@ -37,6 +37,7 @@ var (
 		"script.max_compilations_rate",
 		"search.default_search_timeout",
 		"action.auto_create_index",
+		"search.default_allow_partial_results",
 	}
 	intClusterSettings = []string{
 		"cluster.max_shards_per_node",
@@ -65,7 +66,6 @@ var (
 		"cluster.routing.allocation.enable",
 		"cluster.routing.allocation.same_shard.host",
 		"action.destructive_requires_name",
-		"search.default_allow_partial_results",
 	}
 	dynamicClusterSettings = concatStringSlice(stringClusterSettings, intClusterSettings, floatClusterSettings, boolClusterSettings)
 )
