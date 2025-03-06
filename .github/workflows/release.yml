@@ -196,5 +196,4 @@ jobs:
           # This is the secret of the API key you generated earlier.
           SPACELIFT_API_KEY_SECRET: ${{ secrets.NLEDERMAN_REVEALROOT_ADMIN_SPACELIFT_API_KEY }}
         run: # Don't forget to change the provider type!
-          spacectl profile current
           spacectl provider create-version --type=elasticsearch
