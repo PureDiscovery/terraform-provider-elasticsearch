@@ -182,6 +182,9 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Authenticate first
+        SPACELIFT_API_KEY_ID: 01JNGYX11Q4R1MDAY6VZ35WTBT
+        SPACELIFT_API_KEY_ENDPOINT: https://purediscovery.app.spacelift.io
+        SPACELIFT_API_KEY_SECRET: ${{ secrets.NLEDERMAN_REVEALROOT_ADMIN_SPACELIFT_API_KEY }}
         run: |
           spacectl profile login \
             --api-key-endpoint="$SPACELIFT_API_KEY_ENDPOINT" \
