@@ -172,15 +172,23 @@ jobs:
       - name: Install spacectl
         uses: spacelift-io/setup-spacectl@main
 
-      - name: Run GoReleaser
+      - name: Build root provider
         uses: goreleaser/goreleaser-action@v2.1.1
         with:
           version: latest
-          args: release --clean
+          args: release --clean --config .goreleaser.root.yml
         env:
           GPG_FINGERPRINT: ${{ steps.import_gpg.outputs.fingerprint }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
+      - name: Build third-party provider
+        uses: goreleaser/goreleaser-action@v2.1.1
+        with:
+          version: latest
+          args: release  --config .goreleaser.thirdparty.yml
+        env:
+          GPG_FINGERPRINT: ${{ steps.import_gpg.outputs.fingerprint }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Release new version
         if: startsWith(github.ref, 'refs/tags/')
