@@ -212,4 +212,4 @@ jobs:
           # This is the secret of the API key you generated earlier.
           SPACELIFT_API_KEY_SECRET: ${{ secrets.SPACELIFT_GITHUB_PUBLISH_PROVIDER_THIRDPARTY_API_KEY }}
         run: # Don't forget to change the provider type!
-          spacectl provider create-version --type=elasticsearch-third-party-access
+          spacectl provider create-version --type=elasticsearchthirdpartyaccess
