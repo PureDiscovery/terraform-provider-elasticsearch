@@ -1,7 +1,0 @@
-version: 2
-
-project_name: terraform-provider-elasticsearch
-
-includes:
-  - from_file:
-      path: .goreleaser.yml
