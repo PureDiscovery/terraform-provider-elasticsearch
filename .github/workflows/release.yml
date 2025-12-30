@@ -207,7 +207,7 @@ jobs:
           SPACELIFT_API_KEY_ENDPOINT: https://purediscovery.app.spacelift.io
 
           # This is the ID of the API key you generated earlier.
-          SPACELIFT_API_KEY_ID: 01KDQQP4ESX2VGN84PWFKNSX98
+          SPACELIFT_API_KEY_ID: 01KDQSPHCTTYK8295JZCE6AWVD
 
           # This is the secret of the API key you generated earlier.
           SPACELIFT_API_KEY_SECRET: ${{ secrets.SPACELIFT_GITHUB_PUBLISH_PROVIDER_THIRDPARTY_API_KEY }}
