@@ -181,16 +181,6 @@ jobs:
           GPG_FINGERPRINT: ${{ steps.import_gpg.outputs.fingerprint }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Run GoReleaser (elasticsearch third-party access)
-        uses: goreleaser/goreleaser-action@v2.1.1
-        with:
-          version: latest
-          args: release --clean --config .goreleaser.thirdparty.yml
-        env:
-          GPG_FINGERPRINT: ${{ steps.import_gpg.outputs.fingerprint }}
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-
       - name: Release new version
         if: startsWith(github.ref, 'refs/tags/')
         env:
@@ -206,6 +196,17 @@ jobs:
           SPACELIFT_API_KEY_SECRET: ${{ secrets.SPACELIFT_GITHUB_PUBLISH_PROVIDER_REVEAL_ROOT_API_KEY }}
         run: # Don't forget to change the provider type!
           spacectl provider create-version --type=elasticsearch
+
+
+      - name: Run GoReleaser (elasticsearch third-party access)
+        uses: goreleaser/goreleaser-action@v2.1.1
+        with:
+          version: latest
+          args: release --clean --config .goreleaser.thirdparty.yml
+        env:
+          GPG_FINGERPRINT: ${{ steps.import_gpg.outputs.fingerprint }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
 
       - name: Release new version for third party access FTI
         if: startsWith(github.ref, 'refs/tags/')
